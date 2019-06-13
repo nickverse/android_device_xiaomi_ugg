@@ -2347,7 +2347,7 @@ vendor/qcril.db
 
 # Radio IMS
 etc/permissions/qti-vzw-ims-internal.xml
-lib/lib-ims-rcscmjni.so
+vendor/lib/lib-ims-rcscmjni.so
 vendor/lib/lib-imscamera.so
 vendor/lib/lib-imsdpl.so
 vendor/lib/lib-imsSDP.so
@@ -2357,6 +2357,8 @@ vendor/lib/lib-imsrcscm.so
 vendor/lib/lib-imsrcscmclient.so
 vendor/lib/lib-imsrcscmservice.so
 vendor/lib/lib-imsxml.so
+vendor/lib/lib-rcsimssjni.so
+vendor/lib/lib-rcsjni.so
 vendor/lib/lib-rtpcommon.so
 vendor/lib/lib-rtpcore.so
 vendor/lib/lib-rtpdaemoninterface.so
