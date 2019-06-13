@@ -41,7 +41,7 @@ etc/firmware/rampatch_tlv_3.2.tlv
 
 # Camera
 bin/mm-qcamera-daemon
-lib/hw/camera.msm8937.so
+lib/hw/camera.msm8937.so:lib/hw/camera.vendor.msm8937.so
 
 #lib/libmm-qcamera.so
 #lib/libmmcamera_interface.so
@@ -2341,9 +2341,7 @@ vendor/lib64/libril-qcril-hook-oem.so
 vendor/lib64/librilqmiservices.so
 vendor/lib64/libsettings.so
 vendor/qcril.db
-
-# Copy this manually
-#vendor/lib64/libsystem_health_mon.sο
+vendor/lib64/libsystem_health_mon.sο
 
 # Radio IMS
 etc/permissions/qti-vzw-ims-internal.xml
@@ -2432,8 +2430,8 @@ vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmplugin_customer.so
 # Wi-Fi
 bin/wcnss_service
 
-# Fingerprint (goodixfingerprintd --> gx_fpd manually)
-bin/goodixfingerprintd
+# Fingerprint
+bin/goodixfingerprintd:bin/gx_fpd
 lib64/hw/fingerprint.goodix.default.so
 lib64/hw/fingerprint.msm8937.so
 lib64/lib_fpc_tac_shared.so
