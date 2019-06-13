@@ -2416,7 +2416,7 @@ vendor/bin/thermal-engine
 vendor/lib64/libthermalioctl.so
 
 # Time services
--vendor/app/TimeService/TimeService.apk
+-app/TimeService/TimeService.apk
 bin/time_daemon
 -vendor/lib/libtime_genoff.so
 -vendor/lib64/libtime_genoff.so
