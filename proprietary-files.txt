@@ -82,8 +82,6 @@ vendor/lib/libmpbase.so
 vendor/lib/libremosaic_daemon.so
 vendor/lib/libChamomilePA.so
 vendor/lib/libFaceGrade.so
-vendor/lib/libFaceProc.so
-vendor/lib/libRecoFace.so
 vendor/lib/libarcsoft_beauty_shot.so
 vendor/lib/libarcsoft_beautyshot.so
 vendor/lib/libarcsoft_beautyshot_image_algorithm.so
