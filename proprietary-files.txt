@@ -2253,13 +2253,13 @@ bin/msm_irqbalance
 vendor/lib/libqti-iop-client.so
 vendor/lib/libqti-iop.so
 vendor/lib/libqti-perfd-client.so
-vendor/lib/libqti-performance.so
+vendor/lib/libqti_performance.so
 vendor/lib/libqti-at.so
 vendor/lib/libqti-wl.so
 vendor/lib64/libqti-iop-client.so
 vendor/lib64/libqti-iop.so
 vendor/lib64/libqti-perfd-client.so
-vendor/lib64/libqti-performance.so
+vendor/lib64/libqti_performance.so
 vendor/lib64/libqti-at.so
 vendor/lib64/libqti-wl.so
 
