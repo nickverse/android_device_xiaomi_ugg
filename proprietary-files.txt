@@ -169,8 +169,6 @@ etc/firmware/cpp_firmware_v1_8_0.fw
 etc/firmware/cpp_firmware_v1_10_0.fw
 etc/firmware/cpp_firmware_v1_12_0.fw
 
-vendor/lib/libmmcamera_c2d_module.so
-vendor/lib/libmmcamera_cpp_module.so
 vendor/lib/libmmcamera_csidtg.so
 vendor/lib/libmmcamera_dcrf_lib.so
 vendor/lib/libmmcamera_dummyalgo.so
