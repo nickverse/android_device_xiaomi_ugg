@@ -136,17 +136,3 @@ void vendor_load_properties()
     property_set("ro.hwui.text_large_cache_height", large_cache_height);
 }
 
-using android::base::GetProperty;
-using android::init::property_set;
-
-void init_target_properties()
-{
-    std::ifstream fin;
-    std::string buf;
-
-    std::string product = GetProperty("ro.product.name", "");
-    if (product.find("ugg") == std::string::npos)
-        property_set("ro.product.model", "Redmi Note 5A Prime");
-    }
-}
-
