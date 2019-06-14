@@ -26,11 +26,7 @@
  */
 
 #include <fcntl.h>
-#include <cstdlib>
-#include <fstream>
 #include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 #include <sys/sysinfo.h>
 #include <android-base/strings.h>
  
@@ -49,9 +45,6 @@ char const *heapsize;
 char const *heapminfree;
 char const *heapmaxfree;
 char const *large_cache_height;
-
-__attribute__ ((weak))
-void init_target_properties() {}
 
 static void init_alarm_boot_properties()
 {
