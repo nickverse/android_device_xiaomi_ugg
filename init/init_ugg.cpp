@@ -35,8 +35,6 @@
 #include "log.h"
 #include "util.h"
 
-#include "init_msm8937.h"
-
 using android::base::Trim;
 
 char const *heapstartsize;
