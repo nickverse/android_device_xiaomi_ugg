@@ -14,14 +14,27 @@
 # limitations under the License.
 #
 
-$(call inherit-product, device/xiaomi/ugg/full_ugg.mk)
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
+# Inherit from ugg device
+$(call inherit-product, device/xiaomi/ugg/device.mk)
+
+TARGET_VENDOR := Xiaomi
+PRODUCT_BRAND := Xiaomi
+PRODUCT_DEVICE := ugg
 PRODUCT_NAME := lineage_ugg
+PRODUCT_MANUFACTURER := Xiaomi
+PRODUCT_MODEL := Redmi Note 5A Prime
+BOARD_VENDOR := Xiaomi
+PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT=xiaomi/ugg/ugg:7.1.2/N2G47H/V10.2.1.0.NDKMIXM:user/release-keys \
     PRIVATE_BUILD_DESC="ugg-user 7.1.2 N2G47H V10.2.1.0.NDKMIXM release-keys"
+
+BUILD_FINGERPRINT := Xiaomi/ugg/ugg:7.1.2/N2G47H/V10.2.1.0.NDKMIXM:user/release-keys
 
