@@ -143,6 +143,7 @@ TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(LOCAL_PATH)/android_filesystem_config.h
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_ugg
+TARGET_RECOVERY_DEVICE_MODULES := libinit_ugg
 
 # Malloc
 MALLOC_SVELTE := true
