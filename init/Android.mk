@@ -26,8 +26,4 @@ LOCAL_MODULE := libinit_ugg
 LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := init_ugg.cpp
 
-ifneq ($(TARGET_LIBINIT_MSM8937_DEFINES_FILE),)
-    LOCAL_SRC_FILES += ../../../../$(TARGET_LIBINIT_MSM8937_DEFINES_FILE)
-endif
-
 include $(BUILD_STATIC_LIBRARY)
