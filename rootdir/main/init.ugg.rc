@@ -91,11 +91,6 @@ service time_daemon /system/bin/time_daemon
    user root
    group root
 
-service audiod /system/bin/audiod
-   class late_start
-   user system
-   group system
-
 on boot
     start rmt_storage
     #insmod /system/lib/modules/adsprpc.ko
@@ -209,11 +204,6 @@ on property:persist.sys.fp.goodix=0
 
 on property:persist.sys.fp.goodix=1
      start gx_fpd
-
-service fingerprintd /system/bin/fingerprintd
-    class late_start
-    user system
-    group system
 
 on property:sys.boot_completed=1
     start baseband-sh
