@@ -135,4 +135,3 @@ void vendor_load_properties()
     property_set("ro.hwui.text_large_cache_width", "2048");
     property_set("ro.hwui.text_large_cache_height", large_cache_height);
 }
-
