@@ -183,7 +183,7 @@ TARGET_RIL_VARIANT := caf
 PROTOBUF_SUPPORTED := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/main/fstab.qcom
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
