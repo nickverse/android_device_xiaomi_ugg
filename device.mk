@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+DEVICE_PATH := $(LOCAL_PATH)
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 $(call inherit-product, vendor/xiaomi/ugg/ugg-vendor.mk)
