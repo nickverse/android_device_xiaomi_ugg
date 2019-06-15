@@ -138,6 +138,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fs_config_files
 
+#Init
+PRODUCT_PACKAGES += \
+    libinit_ugg
+
 # GPS
 PRODUCT_PACKAGES += \
     libgnss \
