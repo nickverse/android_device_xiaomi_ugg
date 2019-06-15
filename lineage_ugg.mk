@@ -28,6 +28,7 @@ TARGET_VENDOR := Xiaomi
 PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := ugg
 PRODUCT_NAME := lineage_ugg
+PRODUCT_MODEL := Redmi Note 5A Prime
 PRODUCT_MANUFACTURER := Xiaomi
 BOARD_VENDOR := Xiaomi
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
@@ -36,6 +37,3 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="ugg-user 7.1.2 N2G47H V10.2.1.0.NDKMIXM release-keys"
 
 BUILD_FINGERPRINT := Xiaomi/ugg/ugg:7.1.2/N2G47H/V10.2.1.0.NDKMIXM:user/release-keys
-
-PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
-    ro.product.model
