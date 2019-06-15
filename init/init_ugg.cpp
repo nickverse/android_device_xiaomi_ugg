@@ -25,16 +25,27 @@
    IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <fcntl.h>
+#include <cstdlib>
+#include <fstream>
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include <sys/sysinfo.h>
+
+#include <android-base/file.h>
+#include <android-base/properties.h>
 #include <android-base/strings.h>
- 
+
+#include "init_msm8937.h"
+
 #include "vendor_init.h"
 #include "property_service.h"
 #include "log.h"
 #include "util.h"
 
+using android::base::GetProperty;
+using android::init::property_set;
+using android::base::ReadFileToString;
 using android::base::Trim;
 
 char const *heapstartsize;
@@ -111,10 +122,43 @@ void check_device()
    }
 }
 
+void set_zram_size(void)
+{
+    FILE *f = fopen("/sys/block/zram0/disksize", "wb");
+    int MB = 1024 * 1024;
+    std::string zram_disksize;
+    struct sysinfo si;
+    // Check if zram exist
+    if (f == NULL) {
+        return;
+    }
+    // Initialize system info
+    sysinfo(&si);
+    // Set zram disksize (divide RAM size by 3)
+    zram_disksize = std::to_string(si.totalram / MB / 3);
+    // Write disksize to sysfs
+    fprintf(f, "%sM", zram_disksize.c_str());
+    // Close opened file
+    fclose(f);
+}
+
+void init_target_properties()
+{
+    std::string product = property_get("ro.product.name");
+    std::string product = GetProperty("ro.product.name", "");
+    if (product.find("ugg") == std::string::npos)
+        property_set("ro.product.model", "Redmi Note 5A Prime");
+    } else {
+        property_set("ro.product.model", "Redmi Note 5A");
+    }
+}
+
 void vendor_load_properties()
 {
     init_alarm_boot_properties();
     check_device();
+    set_zram_size();
+    init_target_properties();
 
     property_set("dalvik.vm.heapstartsize", heapstartsize);
     property_set("dalvik.vm.heapgrowthlimit", heapgrowthlimit);
