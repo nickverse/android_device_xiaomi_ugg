@@ -120,10 +120,7 @@ PRODUCT_PACKAGES += \
     memtrack.msm8937 \
     libdisplayconfig \
     libqdMetaData \
-    libqdutils \
-    libtinyxml \
-    libsurfaceflinger \
-    surfaceflinger
+    libtinyxml
 
 # Ebtables
 PRODUCT_PACKAGES += \
