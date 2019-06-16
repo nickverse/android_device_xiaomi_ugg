@@ -119,7 +119,6 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8937 \
     libdisplayconfig \
     libqdMetaData \
-    libsurfaceflinger \
     libtinyxml \
     memtrack.msm8937
 
