@@ -1,5 +1,5 @@
 type bluetooth_loader, domain;
-type bluetooth_loader_exec, exec_type, vendor_file_type, file_type;
+type bluetooth_loader_exec, exec_type, file_type;
 
 # Started by init
 init_daemon_domain(bluetooth_loader)
@@ -23,3 +23,7 @@ allow bluetooth_loader qmuxd_socket:sock_file create_file_perms;
 allow bluetooth_loader qmuxd:unix_stream_socket connectto;
 
 r_dir_file(bluetooth_loader, persist_file)
+
+userdebug_or_eng(`
+    diag_use(bluetooth_loader)
+')
