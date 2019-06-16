@@ -112,10 +112,6 @@ PRODUCT_PACKAGES += \
     libmm-qcamera \
     Snap
 
-PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service
-
 # Display
 PRODUCT_PACKAGES += \
     copybit.msm8937 \
