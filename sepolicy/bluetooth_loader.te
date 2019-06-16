@@ -1,4 +1,3 @@
-type bluetooth_loader, domain;
 type bluetooth_loader_exec, vendor_file_type;
 
 # Get persist.service.bdroid.*, bluetooth.* and wcnss property values
