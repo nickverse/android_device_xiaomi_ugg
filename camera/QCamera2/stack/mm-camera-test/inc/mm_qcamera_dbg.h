@@ -1,4 +1,4 @@
-/* Copyright (c) 2016, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2012, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -27,38 +27,45 @@
  *
  */
 
-#ifndef __QCAMERA_COMMON_H__
-#define __QCAMERA_COMMON_H__
+#ifndef __MM_QCAMERA_DBG_H__
+#define __MM_QCAMERA_DBG_H__
 
-#include <utils/Timers.h>
+//#define LOG_DEBUG 1
 
-// Camera dependencies
-#include "cam_types.h"
-#include "cam_intf.h"
+#ifndef LOG_DEBUG
+  #ifdef _ANDROID_
+    #undef LOG_NIDEBUG
+    #undef LOG_TAG
+    #define LOG_NIDEBUG 0
+    #define LOG_TAG "mm-camera-test"
+    #include <utils/Log.h>
+  #else
+    #include <stdio.h>
+    #define ALOGE CDBG
+  #endif
+  #undef CDBG
+  #define CDBG(fmt, args...) do{}while(0)
+  #define CDBG_ERROR(fmt, args...) ALOGE(fmt, ##args)
+#else
+  #ifdef _ANDROID_
+    #undef LOG_NIDEBUG
+    #undef LOG_TAG
+    #define LOG_NIDEBUG 0
+    #define LOG_TAG "mm-camera-test"
+    #include <utils/Log.h>
+    #define CDBG(fmt, args...) ALOGE(fmt, ##args)
+  #else
+    #include <stdio.h>
+    #define CDBG(fmt, args...) fprintf(stderr, fmt, ##args)
+    #define ALOGE(fmt, args...) fprintf(stderr, fmt, ##args)
+  #endif
+#endif
 
-namespace qcamera {
-
-#define ALIGN(a, b) (((a) + (b)) & ~(b))
-#define MAX(a, b) ((a) > (b) ? (a) : (b))
-
-class QCameraCommon {
-public:
-    QCameraCommon();
-    ~QCameraCommon();
-
-    int32_t init(cam_capability_t *cap);
-
-    int32_t getAnalysisInfo(
-        bool fdVideoEnabled, bool hal3, cam_feature_mask_t featureMask,
-        cam_analysis_info_t *pAnalysisInfo);
-    static uint32_t calculateLCM(int32_t num1, int32_t num2);
-    static nsecs_t getBootToMonoTimeOffset();
-
-private:
-    cam_capability_t *m_pCapability;
-
-};
-
-}; // namespace qcamera
-#endif /* __QCAMERA_COMMON_H__ */
-
+#ifdef _ANDROID_
+  #define CDBG_HIGH(fmt, args...)  ALOGE(fmt, ##args)
+  #define CDBG_ERROR(fmt, args...)  ALOGE(fmt, ##args)
+#else
+  #define CDBG_HIGH(fmt, args...) fprintf(stderr, fmt, ##args)
+  #define CDBG_ERROR(fmt, args...) fprintf(stderr, fmt, ##args)
+#endif
+#endif /* __MM_QCAMERA_DBG_H__ */

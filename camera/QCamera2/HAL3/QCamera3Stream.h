@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2016, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2012-2015, The Linux Foundataion. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -30,23 +30,19 @@
 #ifndef __QCAMERA3_STREAM_H__
 #define __QCAMERA3_STREAM_H__
 
-// System dependencies
-#include <utils/Mutex.h>
-
-// Camera dependencies
-#include "QCamera3Mem.h"
-#include "QCamera3StreamMem.h"
+#include <hardware/camera3.h>
+#include "utils/Mutex.h"
 #include "QCameraCmdThread.h"
-#include "QCameraQueue.h"
+#include "QCamera3Mem.h"
 
 extern "C" {
-#include "mm_camera_interface.h"
+#include <mm_camera_interface.h>
 }
 
 namespace qcamera {
 
-class QCamera3Channel;
 class QCamera3Stream;
+class QCamera3Channel;
 
 typedef void (*hal3_stream_cb_routine)(mm_camera_super_buf_t *frame,
                                   QCamera3Stream *stream,
@@ -64,16 +60,14 @@ public:
     virtual int32_t init(cam_stream_type_t streamType,
                          cam_format_t streamFormat,
                          cam_dimension_t streamDim,
-                         cam_rotation_t streamRotation,
                          cam_stream_reproc_config_t* reprocess_config,
                          uint8_t minStreamBufNum,
-                         cam_feature_mask_t postprocess_mask,
+                         uint32_t postprocess_mask,
                          cam_is_type_t is_type,
                          uint32_t batchSize,
                          hal3_stream_cb_routine stream_cb,
                          void *userdata);
     virtual int32_t bufDone(uint32_t index);
-    virtual int32_t cancelBuffer(uint32_t index);
     virtual int32_t bufRelease(int32_t index);
     virtual int32_t processDataNotify(mm_camera_super_buf_t *bufs);
     virtual int32_t start();
@@ -87,17 +81,15 @@ public:
     int32_t getFrameOffset(cam_frame_len_offset_t &offset);
     int32_t getFrameDimension(cam_dimension_t &dim);
     int32_t getFormat(cam_format_t &fmt);
-    QCamera3StreamMem *getStreamBufs() {return mStreamBufs;};
+    QCamera3Memory *getStreamBufs() {return mStreamBufs;};
     uint32_t getMyServerID();
 
     int32_t mapBuf(uint8_t buf_type, uint32_t buf_idx,
-            int32_t plane_idx, int fd, void *buffer, size_t size);
+            int32_t plane_idx, int fd, size_t size);
     int32_t unmapBuf(uint8_t buf_type, uint32_t buf_idx, int32_t plane_idx);
     int32_t setParameter(cam_stream_parm_buffer_t &param);
-    cam_stream_info_t* getStreamInfo() const {return mStreamInfo; };
 
     static void releaseFrameData(void *data, void *user_data);
-    int32_t timeoutFrame(int32_t bufIdx);
 
 private:
     uint32_t mCamHandle;
@@ -112,11 +104,10 @@ private:
     void *mUserData;
 
     QCameraQueue     mDataQ;
-    QCameraQueue     mTimeoutFrameQ;
     QCameraCmdThread mProcTh; // thread for dataCB
 
     QCamera3HeapMemory *mStreamInfoBuf;
-    QCamera3StreamMem *mStreamBufs;
+    QCamera3Memory *mStreamBufs;
     mm_camera_buf_def_t *mBufDefs;
     cam_frame_len_offset_t mFrameLenOffset;
     cam_padding_info_t mPaddingInfo;
@@ -165,7 +156,6 @@ private:
     int32_t handleBatchBuffer(mm_camera_super_buf_t *superBuf);
 
     static const char* mStreamNames[CAM_STREAM_TYPE_MAX];
-    void flushFreeBatchBufQ();
 };
 
 }; // namespace qcamera

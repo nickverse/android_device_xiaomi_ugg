@@ -1,4 +1,4 @@
-/* Copyright (c) 2015-2016, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2015, The Linux Foundataion. All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are
@@ -29,9 +29,9 @@
 #ifndef __QCAMERAMUXER_H__
 #define __QCAMERAMUXER_H__
 
-#include "camera.h"
+#include <hardware/camera.h>
+#include <system/camera.h>
 #include "QCamera2HWI.h"
-#include "QCamera3HWI.h"
 
 namespace qcamera {
 
@@ -221,6 +221,7 @@ private:
     qcamera_physical_descriptor_t *m_pPhyCamera;
     qcamera_logical_descriptor_t *m_pLogicalCamera;
     const camera_module_callbacks_t *m_pCallbacks;
+    bool m_bDualCameraEnabled;
     bool m_bAuxCameraExposed;
     uint8_t m_nPhyCameras;
     uint8_t m_nLogicalCameras;
@@ -247,8 +248,6 @@ private:
     bool m_bMpoEnabled;
     // Signifies if frame sync is enabled
     bool m_bFrameSyncEnabled;
-    // flag to indicate whether recording hint is internally set.
-    bool m_bRecordingHintInternallySet;
 
     /* Private Member Methods */
     int setupLogicalCameras();
@@ -263,8 +262,6 @@ private:
             struct camera_device * device);
     qcamera_physical_descriptor_t* getPhysicalCamera(
             qcamera_logical_descriptor_t* log_cam, uint32_t index);
-    int32_t getActiveNumOfPhyCam(
-            qcamera_logical_descriptor_t* log_cam, int& numOfAcitvePhyCam);
     int32_t setMpoCallbackCookie(void* mpoCbCookie);
     void* getMpoCallbackCookie();
     int32_t setMainJpegCallbackCookie(void* jpegCbCookie);
