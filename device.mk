@@ -118,7 +118,7 @@ PRODUCT_PACKAGES += \
     gralloc.msm8937 \
     hwcomposer.msm8937 \
     libdisplayconfig \
-    libqdMetaData.system \
+    libqdMetaData \
     libtinyxml \
     memtrack.msm8937
 
