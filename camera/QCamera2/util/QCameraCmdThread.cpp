@@ -27,9 +27,12 @@
 *
 */
 
+#include <stdlib.h>
+#include <string.h>
 #include <utils/Errors.h>
 #include <utils/Log.h>
-#include <sys/prctl.h>
+#define PRCTL_H <SYSTEM_HEADER_PREFIX/prctl.h>
+#include PRCTL_H
 #include "QCameraCmdThread.h"
 
 using namespace android;
