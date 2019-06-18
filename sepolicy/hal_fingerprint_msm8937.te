@@ -1,6 +1,6 @@
 type hal_fingerprint_msm8937, domain;
-hal_server_domain(hal_fingerprint_msm8937, hal_fingerprint)
- 
+hal_impl_domain(hal_fingerprint_msm8937, hal_fingerprint)
+
 type hal_fingerprint_msm8937_exec, exec_type, file_type;
 init_daemon_domain(hal_fingerprint_msm8937)
 
