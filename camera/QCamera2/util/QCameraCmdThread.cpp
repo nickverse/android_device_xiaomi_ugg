@@ -31,8 +31,7 @@
 #include <string.h>
 #include <utils/Errors.h>
 #include <utils/Log.h>
-#define PRCTL_H <SYSTEM_HEADER_PREFIX/prctl.h>
-#include PRCTL_H
+#include <sys/prctl.h>
 #include "QCameraCmdThread.h"
 
 using namespace android;
