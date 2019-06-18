@@ -4,7 +4,6 @@ type hal_fingerprint_msm8937_exec, exec_type, file_type;
 init_daemon_domain(hal_fingerprint_msm8937)
 
 binder_use(hal_fingerprint_msm8937)
-add_service(hal_fingerprint_msm8937, hal_fingerprint_msm8937_service)
 binder_call(hal_fingerprint_msm8937, gx_fpd)
 
 allow hal_fingerprint_msm8937 gx_fpd_service:service_manager find;
