@@ -40,7 +40,7 @@
 #define SYSINFO_H <SYSTEM_HEADER_PREFIX/sysinfo.h>
 #include SYSINFO_H
 #include "gralloc_priv.h"
-#include "system/graphics.h"
+#include "graphics.h"
 
 // Camera dependencies
 #include "QCameraBufferMaps.h"
