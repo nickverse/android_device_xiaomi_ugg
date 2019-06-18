@@ -1,5 +1,5 @@
 # Baseband
-/(vendor|system/vendor)/etc/set_baseband.sh                         u:object_r:set_baseband_exec:s0
+/system/etc/set_baseband.sh                         u:object_r:set_baseband_exec:s0
 
 # Biometric
 /system/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.xiaomi_msm8937 u:object_r:hal_fingerprint_msm8937_exec:s0
