@@ -35,6 +35,7 @@
 
 namespace qcamera {
 
+
 class QCameraHAL3VideoTest : public QCameraHAL3Test
 {
 

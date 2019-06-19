@@ -280,10 +280,6 @@ QCamera3Stream::QCamera3Stream(uint32_t camHandle,
  *==========================================================================*/
 QCamera3Stream::~QCamera3Stream()
 {
-    if (mBatchSize) {
-        flushFreeBatchBufQ();
-    }
-
     if (mStreamInfoBuf != NULL) {
         int rc = mCamOps->unmap_stream_buf(mCamHandle,
                     mChannelHandle, mHandle, CAM_MAPPING_BUF_TYPE_STREAM_INFO, 0, -1);
@@ -1183,7 +1179,6 @@ int32_t QCamera3Stream::unmapBuf(uint8_t buf_type, uint32_t buf_idx, int32_t pla
 int32_t QCamera3Stream::setParameter(cam_stream_parm_buffer_t &param)
 {
     int32_t rc = NO_ERROR;
-    Mutex::Autolock lock(mParamLock);
     mStreamInfo->parm_buf = param;
     rc = mCamOps->set_stream_parms(mCamHandle,
                                    mChannelHandle,

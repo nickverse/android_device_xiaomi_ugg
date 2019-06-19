@@ -31,8 +31,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <assert.h>
 #include <errno.h>
 #include <fcntl.h>
-#include <unistd.h>
-#include <sys/ioctl.h>
 #define MMAN_H <SYSTEM_HEADER_PREFIX/mman.h>
 #include MMAN_H
 
@@ -412,7 +410,7 @@ static void mm_app_zsl_notify_cb(mm_camera_super_buf_t *bufs,
           /* App will free the metadata */
           pme->metadata = malloc(sizeof(metadata_buffer_t));
           if (!pme->metadata) {
-              LOGE("not enough memory\n");
+              ALOGE("not enough memory\n");
               return;
           }
       }

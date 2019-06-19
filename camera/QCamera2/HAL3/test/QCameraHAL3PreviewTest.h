@@ -32,7 +32,6 @@
 #include "QCameraHAL3Base.h"
 #include "QCameraHAL3Test.h"
 
-
 namespace qcamera {
 
 class QCameraHAL3PreviewTest : public QCameraHAL3Test
