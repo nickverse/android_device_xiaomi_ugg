@@ -30,8 +30,8 @@ TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
 
 # Additional native libraries
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/public.libraries.txt:system/etc/public.libraries.txt
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/configs/public.libraries.txt:system/etc/public.libraries.txt
 
 # Permissions
 PRODUCT_COPY_FILES += \
